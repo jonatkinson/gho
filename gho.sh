@@ -62,8 +62,8 @@ if [[ $? -eq 0 ]]; then
     esac
 
     # Open the Github URL in Safari if it exists, otherwise use $BROWSER
-    if command -v safari >/dev/null 2>&1; then
-        open -a safari "$github_url"
+    if [ -d "/Applications/Safari.app" ]; then
+        open -a Safari "$github_url"
     elif [[ -n $BROWSER ]]; then
         $BROWSER "$github_url"
     else
