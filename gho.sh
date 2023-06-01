@@ -41,6 +41,7 @@ if [[ $? -eq 0 ]]; then
     # Parse the Github URL from the .git/config
     github_url=$(grep "url" "${git_dir}/.git/config" | head -n 1 | awk -F'=' '{ print $2 }' | xargs)
     github_url=${github_url/ssh:\/\/git@github.com\//https:\/\/github.com\/}
+    github_url=${github_url/git@github.com:/https:\/\/github.com\/}
     github_url=${github_url/.git/}
 
     [[ $verbose -eq 1 ]] && echo "Github URL is: $github_url"
