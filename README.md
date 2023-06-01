@@ -1,4 +1,4 @@
-# Bash Script for Opening GitHub Repository in a Web Browser - GHO
+# gho
 
 The `gho` script (GitHub Opener) is a Bash utility that identifies if the current or any parent directory is a Git repository. If it is, the script extracts the GitHub URL of the repository from its `.git/config` file. It then attempts to open the repository in Safari, or in the web browser specified by the `$BROWSER` environment variable if Safari is unavailable.
 
