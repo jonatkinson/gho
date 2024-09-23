@@ -62,8 +62,12 @@ if [[ $? -eq 0 ]]; then
             ;;
     esac
 
+    # Check if running inside WSL
+    if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+        [[ $verbose -eq 1 ]] && echo "Running inside WSL, using cmd.exe to open URL"
+        cmd.exe /c start "$github_url"
     # Open the Github URL in Safari if it exists, otherwise use $BROWSER
-    if [ -d "/Applications/Safari.app" ]; then
+    elif [ -d "/Applications/Safari.app" ]; then
         open -a Safari "$github_url"
     elif [[ -n $BROWSER ]]; then
         $BROWSER "$github_url"
